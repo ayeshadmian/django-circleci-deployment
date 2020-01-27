@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<!--[if lt IE 8]><html class="no-js oldIE" lang="en-US"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en-US"><![endif]-->
+<!--[if IE 9]><html class="no-js ie9" lang="en-US"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en-US" class="no-js not-ie"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>CMS Cloud Sample Polls App</title>
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="{% static 'polls/main.css' %}">
+  <!-- endbuild -->
+  <!-- build:js scripts/vendor/modernizr.js -->
+  <script src="{% static 'polls/vendor/modernizr/modernizr.js' %}"></script>
+  <!-- endbuild -->
+</head>
+<body>
+  <header role="banner">
+  </header>
+
+  <!-- begin Main -->
+  <main role="main" aria-label="main section" id="main-content">
+  {% block content %}{% endblock %}
+  </main>
+
+  <!-- begin footer-->
+  <footer class="footer" role="contentinfo">
+  </footer>
+  <!-- end footer -->
+
+  <!-- build:js scripts/main.js -->
+  <script data-main="{% static 'polls/main.js' %}" src="{% static 'polls/vendor/requirejs/require.js' %}"></script>
+  <!-- endbuild -->
+</body>
+</html>

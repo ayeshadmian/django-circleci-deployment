@@ -6,7 +6,8 @@ jobs:
       - image: circleci/python:3.6.4 # every job must define an image for the docker executor and subsequent jobs may define a different image.
         environment:
           PIPENV_VENV_IN_PROJECT: true
-          DATABASE_URL: mysql://root@localhost/circle_test?sslmode=disable
+          #DATABASE_URL: mysql://root@localhost/circle_test?sslmode=disable
+      - image: circleci/php:7.1-apache-node-browsers # The primary container where steps are run
       - image: circleci/mysql:8.0.4 # an example of how to specify a service container
         environment:
           MYSQL_DATABASE: mysql
@@ -14,6 +15,7 @@ jobs:
           MYSQL_PASSWORD: password
     steps: # steps that comprise the `build` job
       - checkout # check out source code to working directory
+      - run: sudo apt install -y mysql-client
       - run: sudo chown -R circleci:circleci /usr/local/bin
       - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
       - restore_cache:

@@ -13,13 +13,17 @@ jobs:
           MYSQL_DATABASE: mysql
           MYSQL_USER: root
           MYSQL_PASSWORD: password
+    
+    working directory: ~/django-circleci-deployment
+    
     steps: # steps that comprise the `build` job
       - checkout # check out source code to working directory
+      - run: sudo apt install -y mysql-client
       - run: sudo chown -R circleci:circleci /usr/local/bin
       - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
       - restore_cache:
       # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          key: deps1-{{ .Branch }}-{{ checksum "requirements/dev.txt" }}
+          key: deps1-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       - run:
           name: Install Python deps in a venv
           command: |
@@ -27,9 +31,9 @@ jobs:
             pipenv install
             python3 -m venv venv
             . venv/bin/activate
-            pip install -r requirements/dev.txt
+            #pip install -r requirements/dev.txt
       - save_cache: # cache Python dependencies using checksum of Pipfile as the cache-key
-          key: deps1-{{ .Branch }}-{{ checksum "requirements/dev.txt" }}
+          key: deps1-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
             - ".venv"
             - "/usr/local/bin"

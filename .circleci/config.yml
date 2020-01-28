@@ -26,12 +26,12 @@ jobs:
           name: Install Python deps in a venv
           command: |
             #sudo apt-get install default-mysql-client
-            sudo pip install pipenv
-            pipenv install
+            #sudo pip install pipenv
+            #pipenv install
             #python3 -m venv ~/.virtualenvs/djangodev 
-            #python3 -m venv venv
+            python3 -m venv venv
             #.virtualenvs\djangodev\Scripts\activate.bat
-            #.venv/bin/activate
+            .venv/bin/activate
             #pip install -r requirements/dev.txt
       - save_cache: # cache Python dependencies using checksum of Pipfile as the cache-key
           key: deps1-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
@@ -41,7 +41,8 @@ jobs:
             - "/usr/local/lib/python3.6/site-packages"
       - run:
           command: |
-            pipenv run python manage.py test
+            #pipenv run python manage.py test
+            py manage.py runserver
       - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: test-results
       - store_artifacts: # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/

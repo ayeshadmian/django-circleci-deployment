@@ -26,11 +26,11 @@ jobs:
           name: Install Python deps in a venv
           command: |
             sudo apt-get install default-mysql-client
-            #sudo pip install pipenv
-            #pipenv install
-            python3 -m venv ~/.virtualenvs/djangodev 
+            sudo pip install pipenv
+            pipenv install
+            #python3 -m venv ~/.virtualenvs/djangodev 
             #python3 -m venv venv
-            .virtualenvs\djangodev\Scripts\activate.bat
+            #.virtualenvs\djangodev\Scripts\activate.bat
             #.venv/bin/activate
             #pip install -r requirements/dev.txt
       - save_cache: # cache Python dependencies using checksum of Pipfile as the cache-key

@@ -19,7 +19,7 @@ jobs:
       - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
       - restore_cache:
       # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          key: deps9-{{ .Branch }}-{{ checksum "requirements/dev.txt" }}
+          key: deps1-{{ .Branch }}-{{ checksum "requirements/dev.txt" }}
       - run:
           name: Install Python deps in a venv
           command: |
@@ -29,7 +29,7 @@ jobs:
             . venv/bin/activate
             pip install -r requirements/dev.txt
       - save_cache: # cache Python dependencies using checksum of Pipfile as the cache-key
-          key: deps9-{{ .Branch }}-{{ checksum "requirements/dev.txt" }}
+          key: deps1-{{ .Branch }}-{{ checksum "requirements/dev.txt" }}
           paths:
             - ".venv"
             - "/usr/local/bin"

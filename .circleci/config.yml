@@ -6,7 +6,6 @@ jobs:
         environment:
           PIPENV_VENV_IN_PROJECT: true
           #DATABASE_URL: mysql://root@localhost/circle_test?sslmode=disable
-      - image: circleci/php:7.1-apache-node-browsers # The primary container where steps are run
       - image: circleci/mysql:8.0.4 # an example of how to specify a service container
         environment:
           MYSQL_DATABASE: mysql

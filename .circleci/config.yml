@@ -7,6 +7,8 @@ jobs:
           PIPENV_VENV_IN_PROJECT: true
           #DATABASE_URL: mysql://root@localhost/circle_test?sslmode=disable
       - image: circleci/mysql:8.0.4 # an example of how to specify a service container
+      - cap_add:
+          SYS_NICE  # CAP_SYS_NICE
         environment:
           MYSQL_DATABASE: mysql
           MYSQL_USER: root

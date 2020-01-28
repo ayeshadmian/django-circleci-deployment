@@ -1,7 +1,6 @@
 version: 2
 jobs:
   build:
-    #working_directory: ~/django-circleci-deployment
     docker:
       - image: circleci/python:3.6.4 # every job must define an image for the docker executor and subsequent jobs may define a different image.
         environment:
@@ -18,7 +17,7 @@ jobs:
     
     steps: # steps that comprise the `build` job
       - checkout # check out source code to working directory
-      - run: sudo apt install -y mysql-client
+      #- run: sudo apt install -y mysql-client
       - run: sudo chown -R circleci:circleci /usr/local/bin
       - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
       - restore_cache:

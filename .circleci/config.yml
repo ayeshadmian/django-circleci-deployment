@@ -16,12 +16,12 @@ jobs:
     
     steps: # steps that comprise the `build` job
       - checkout # check out source code to working directory
-      #- run: sudo apt install -y mysql-client
       - run: sudo chown -R circleci:circleci /usr/local/bin
       - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
       - run: sudo pip install pip --upgrade
       - run: sudo apt-get update
-      - run: sudo pip install MySQL-python
+      - run: sudo apt-get install default-mysql-client
+      #- run: sudo pip install MySQL-python
       - restore_cache:
       # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
           key: deps1-{{ .Branch }}-{{ checksum "Pipfile.lock" }}

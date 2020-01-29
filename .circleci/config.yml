@@ -43,7 +43,7 @@ jobs:
           command: |
             #pipenv run python manage.py test
             . venv/bin/activate
-            python manage.py test
+            python manage.py runserver
             #py manage.py runserver
       - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: test-results

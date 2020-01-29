@@ -21,7 +21,8 @@ jobs:
       - run: sudo pip install pip --upgrade
       - run: sudo apt-get update
       - run: sudo pip install configparser
-      - run: sudo pip install mysql-python
+      #- run: sudo pip install mysql-python
+      - run: sudo apt-get install python-mysqldb
       - run: sudo pip install mysqlclient
       - restore_cache:
       # Read about caching dependencies: https://circleci.com/docs/2.0/caching/

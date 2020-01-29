@@ -22,6 +22,7 @@ jobs:
       - run: sudo apt-get update
       - run: sudo pip install configparser
       - run: sudo apt-get install mysql-client
+      - run: sudo pip install --force-reinstall --ignore-installed --no-binary :all: mysqlclient
       - run: sudo pip install mysqlclient
       - restore_cache:
       # Read about caching dependencies: https://circleci.com/docs/2.0/caching/

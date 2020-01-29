@@ -29,10 +29,10 @@ jobs:
             #sudo pip install pipenv
             #pipenv install
             python -m pip install django
-            python3 -m venv
+            python3 -m venv venv
             #.virtualenvs\djangodev\Scripts\activate.bat
             . venv/bin/activate
-            #pip install -r requirements/dev.txt
+            pip install -r requirements.txt
       - save_cache: # cache Python dependencies using checksum of Pipfile as the cache-key
           key: deps1-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:

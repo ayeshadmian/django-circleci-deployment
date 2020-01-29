@@ -6,11 +6,11 @@ jobs:
         environment:
           PIPENV_VENV_IN_PROJECT: true
           #DATABASE_URL: mysql://root@localhost/circle_test?sslmode=disable
-      #- image: circleci/mysql:8.0.4 # an example of how to specify a service container
-    #environment:
-      #    MYSQL_DATABASE: mysql
-       #   MYSQL_USER: root
-        #  MYSQL_PASSWORD: password
+      - image: circleci/mysql:8.0.4 # an example of how to specify a service container
+    environment:
+          MYSQL_DATABASE: mysql
+          MYSQL_USER: root
+          MYSQL_PASSWORD: password
     
     working directory: ~/django-circleci-deployment
     
@@ -20,24 +20,20 @@ jobs:
       - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
       - run: sudo pip install pip --upgrade
       - run: sudo apt-get update
-      #- run: sudo apt-get install mysql-client
-      #- run: sudo pip install MySQL-python
+      - run: sudo apt-get install mysql-client
+      - run: sudo pip install MySQL-python
       - restore_cache:
       # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          key: deps11-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+          key: deps12-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       - run:
           name: Install Python deps in a venv
           command: |
-            #sudo apt-get install default-mysql-client
-            #sudo pip install pipenv
-            #pipenv install
             python -m pip install django
             python3 -m venv venv
-            #.virtualenvs\djangodev\Scripts\activate.bat
             . venv/bin/activate
             pip install -r requirements.txt
       - save_cache: # cache Python dependencies using checksum of Pipfile as the cache-key
-          key: deps11-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+          key: deps12-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
             - ".venv"
             - "/usr/local/bin"
@@ -47,7 +43,7 @@ jobs:
             #pipenv run python manage.py test
             . venv/bin/activate
             python manage.py runserver
-            #py manage.py runserver
+            
       - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: test-results
       - store_artifacts: # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/

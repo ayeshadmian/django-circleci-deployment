@@ -6,11 +6,11 @@ jobs:
         environment:
           PIPENV_VENV_IN_PROJECT: true
           #DATABASE_URL: mysql://root@localhost/circle_test?sslmode=disable
-      - image: circleci/mysql:8.0.4 # an example of how to specify a service container
-    environment:
-          MYSQL_DATABASE: mysql
-          MYSQL_USER: root
-          MYSQL_PASSWORD: password
+      #- image: circleci/mysql:8.0.4 # an example of how to specify a service container
+    #environment:
+      #    MYSQL_DATABASE: mysql
+       #   MYSQL_USER: root
+        #  MYSQL_PASSWORD: password
     
     working directory: ~/django-circleci-deployment
     
@@ -19,9 +19,8 @@ jobs:
       - run: sudo chown -R circleci:circleci /usr/local/bin
       - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
       - run: sudo pip install pip --upgrade
-      #- run: sudo pip install configparser==3.3.0.post2
       - run: sudo apt-get update
-      - run: sudo apt-get install mysql-client
+      #- run: sudo apt-get install mysql-client
       #- run: sudo pip install MySQL-python
       - restore_cache:
       # Read about caching dependencies: https://circleci.com/docs/2.0/caching/

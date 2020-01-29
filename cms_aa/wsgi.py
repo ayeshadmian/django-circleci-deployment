@@ -9,8 +9,8 @@ https://docs.djangoproject.com/en/dev/howto/deployment/wsgi/
 
 import os
 #import sys
-sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
-
+#sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
+os.environ['PYTHONPATH'] = os.path.abspath(os.path.join(os.path.dirname(__file__),".."))
 #DJANGO_PATH =  os.path.join(os.path.abspath(os.path.dirname(__file__)), '..')
 #sys.path.append(DJANGO_PATH)
 

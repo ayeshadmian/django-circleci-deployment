@@ -22,7 +22,7 @@ jobs:
       - run: sudo apt-get update
       - run: sudo pip install configparser
       - run: sudo apt-get install mysql-client
-      - run: sudo pip install MySQL-python
+      - run: sudo pip install mysqlclient
       - restore_cache:
       # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
           key: deps12-{{ .Branch }}-{{ checksum "Pipfile.lock" }}

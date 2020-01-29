@@ -25,7 +25,7 @@ jobs:
       #- run: sudo pip install MySQL-python
       - restore_cache:
       # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          key: deps1-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+          key: deps10-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       - run:
           name: Install Python deps in a venv
           command: |
@@ -38,7 +38,7 @@ jobs:
             . venv/bin/activate
             pip install -r requirements.txt
       - save_cache: # cache Python dependencies using checksum of Pipfile as the cache-key
-          key: deps3-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+          key: deps10-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
             - ".venv"
             - "/usr/local/bin"

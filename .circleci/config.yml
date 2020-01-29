@@ -20,6 +20,7 @@ jobs:
       - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
       - run: sudo pip install pip --upgrade
       - run: sudo apt-get update
+      - run: sudo pip install configparser
       - run: sudo apt-get install mysql-client
       - run: sudo pip install MySQL-python
       - restore_cache:

@@ -82,7 +82,7 @@ DATABASES = {
         'PASSWORD': 'password',
         'HOST': 'db',
         'PORT': '3307'
-        'OPTIONS': {'charset': 'utf8mb4'},
+        'OPTIONS': 'charset': 'utf8mb4',
     }
 }
 

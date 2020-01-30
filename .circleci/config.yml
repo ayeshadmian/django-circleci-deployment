@@ -8,8 +8,9 @@ jobs:
           #DATABASE_URL: mysql://root@localhost/circle_test?sslmode=disable
       - image: circleci/mysql:8.0.4 # an example of how to specify a service container
     environment:
-          MYSQL_DATABASE: mysql
-          MYSQL_USER: root
+          MYSQL_ROOT_PASSWORD: secret123
+          MYSQL_DATABASE: django_app
+          MYSQL_USER: django_app
           MYSQL_PASSWORD: password
     
     working directory: ~/django-circleci-deployment

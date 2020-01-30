@@ -77,11 +77,12 @@ WSGI_APPLICATION = 'cms_aa.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mysql',
-        'USER': 'root',
+        'NAME': 'django_app',
+        'USER': 'django_app',
         'PASSWORD': 'password',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'HOST': 'db',
+        'PORT': '3307
+        'OPTIONS': {'charset': 'utf8mb4'},
     }
 }
 

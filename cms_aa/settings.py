@@ -81,7 +81,7 @@ DATABASES = {
         'USER': 'django_app',
         'PASSWORD': 'password',
         'HOST': 'db',
-        'PORT': '3307
+        'PORT': '3307'
         'OPTIONS': {'charset': 'utf8mb4'},
     }
 }

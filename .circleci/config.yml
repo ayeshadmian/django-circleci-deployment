@@ -26,6 +26,7 @@ jobs:
       - run: sudo pip install mysql-connector-python
       - run: sudo apt-get install libmysqlclient-dev
       - run: sudo apt-get install mysql-server
+      - run: sudo apt-get install mysql-devel
       #- run: sudo pip install mysql-python
       - run: sudo apt-get install python-mysqldb
       - run: sudo pip install mysqlclient
